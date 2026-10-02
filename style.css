@@ -1,0 +1,383 @@
+:root {
+  --page-bg: #241a14;
+  --paper: #f7f1e4;
+  --ink: #2b2019;
+  --ink-soft: #8a7c6c;
+  --line: #d9cdb7;
+  --stamp-red: #a3402c;
+  --stamp-green: #3d6b4f;
+  --danger: #b23a2f;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: 'Space Mono', 'Courier New', monospace;
+  background: var(--page-bg);
+  color: var(--paper);
+}
+
+h1, h2, .brand {
+  font-family: 'Fraunces', Georgia, serif;
+}
+
+/* The Nav Bar*/
+.topnav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 32px;
+}
+
+.brand {
+  color: var(--paper);
+  font-weight: 600;
+  font-style: italic;
+  font-size: 1.3rem;
+}
+
+.brand-mark {
+  display: none;
+}
+
+.nav-links {
+  display: flex;
+  gap: 18px;
+  font-size: 0.82rem;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #b7a996;
+  padding: 4px 0;
+  border-bottom: 1px solid transparent;
+  transition: color 0.15s ease, border-color 0.15s ease;
+}
+
+.nav-links a::before {
+  content: '\203A\00a0';
+  opacity: 0;
+  transition: opacity 0.15s ease;
+}
+
+.nav-links a:hover,
+.nav-links a:focus-visible {
+  color: var(--paper);
+}
+
+.nav-links a.active {
+  color: var(--paper);
+  border-color: currentColor;
+}
+
+.nav-links a.active::before {
+  opacity: 1;
+}
+
+/* the page colors */
+body.receipt-page { --accent: var(--stamp-red); }
+body.sku-page { --accent: var(--stamp-green); }
+
+/* main card */
+main {
+  display: flex;
+  justify-content: center;
+  padding: 20px 20px 70px;
+}
+
+.card {
+  position: relative;
+  width: 100%;
+  max-width: 400px;
+  background: var(--paper);
+  color: var(--ink);
+  border-radius: 6px;
+  padding: 32px 26px 24px;
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4);
+}
+
+/* hole on tag */
+.tag-hole {
+  position: absolute;
+  top: -11px;
+  left: 50%;
+  width: 18px;
+  height: 18px;
+  margin-left: -9px;
+  border-radius: 50%;
+  background: var(--page-bg);
+  border: 3px solid var(--line);
+}
+
+.card-header {
+  text-align: center;
+  margin-bottom: 18px;
+}
+
+.card-icon {
+  font-size: 1.6rem;
+  margin-bottom: 4px;
+}
+
+.card-header h1 {
+  margin: 0;
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.card-header p {
+  margin: 3px 0 0;
+  font-size: 0.78rem;
+  color: var(--ink-soft);
+}
+
+
+/* labels */
+.section-label {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: var(--ink-soft);
+  margin: 0 0 10px;
+}
+
+/* the list of items */
+.menu-list {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+}
+
+.menu-row {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+}
+
+.menu-name {
+  font-size: 0.85rem;
+  white-space: nowrap;
+}
+
+.menu-row::after {
+  content: '';
+  flex: 1;
+  border-bottom: 1px dotted var(--line);
+  transform: translateY(-3px);
+}
+
+.menu-price {
+  font-size: 0.85rem;
+  min-width: 44px;
+  text-align: right;
+}
+
+.qty-control {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.qty-btn {
+  width: 20px;
+  height: 20px;
+  border-radius: 4px;
+  border: 1px solid var(--line);
+  background: transparent;
+  color: var(--ink);
+  font-family: inherit;
+  font-size: 0.85rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.qty-btn:hover {
+  background: var(--line);
+}
+
+.qty-value {
+  min-width: 12px;
+  text-align: center;
+  font-size: 0.82rem;
+}
+
+/* form */
+.field {
+  margin-bottom: 14px;
+}
+
+.field label {
+  display: block;
+  font-size: 0.72rem;
+  letter-spacing: 0.03em;
+  margin-bottom: 5px;
+  color: var(--ink-soft);
+}
+
+.field input,
+.field select {
+  width: 100%;
+  padding: 9px 10px;
+  border: none;
+  border-bottom: 1px solid var(--line);
+  border-radius: 0;
+  font-size: 0.88rem;
+  font-family: inherit;
+  color: var(--ink);
+  background: transparent;
+}
+
+.field input:focus,
+.field select:focus {
+  outline: none;
+  border-bottom: 1px solid var(--accent);
+}
+
+.field.error input {
+  border-bottom-color: var(--danger);
+}
+
+.field-error-msg {
+  display: none;
+  color: var(--danger);
+  font-size: 0.72rem;
+  margin-top: 5px;
+}
+
+.field.error .field-error-msg {
+  display: block;
+}
+
+/* buttons */
+.btn-primary {
+  width: 100%;
+  padding: 12px;
+  margin-top: 6px;
+  border: none;
+  border-radius: 4px;
+  background: var(--accent);
+  color: var(--paper);
+  font-family: inherit;
+  font-size: 0.85rem;
+  letter-spacing: 0.03em;
+  cursor: pointer;
+  transition: filter 0.15s ease, transform 0.05s ease;
+}
+
+.btn-primary:hover {
+  filter: brightness(1.1);
+}
+
+.btn-primary:active {
+  transform: translateY(1px);
+}
+
+.btn-secondary {
+  width: 100%;
+  padding: 9px;
+  margin-top: 8px;
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  background: transparent;
+  color: var(--ink-soft);
+  font-family: inherit;
+  font-size: 0.78rem;
+  cursor: pointer;
+}
+
+.btn-secondary:hover {
+  background: var(--line);
+  color: var(--ink);
+}
+
+/* result box */
+.output-box {
+  margin-top: 4px;
+}
+
+.output-placeholder {
+  text-align: center;
+  color: var(--ink-soft);
+  font-size: 0.8rem;
+  padding: 4px 0 2px;
+}
+
+.receipt-line {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.82rem;
+  padding: 3px 0;
+}
+
+.receipt-line.total {
+  border-top: 1px dashed var(--line);
+  margin-top: 6px;
+  padding-top: 8px;
+  font-weight: 700;
+}
+
+.sku-result {
+  text-align: center;
+}
+
+.sku-code {
+  font-size: 1.7rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  color: var(--accent);
+  margin: 4px 0 8px;
+}
+
+/* barcode for SKU generator */
+.barcode {
+  height: 30px;
+  margin: 0 auto 12px;
+  max-width: 220px;
+  background: repeating-linear-gradient(
+    90deg,
+    var(--ink) 0 2px,
+    transparent 2px 4px,
+    var(--ink) 4px 5px,
+    transparent 5px 9px
+  );
+}
+
+.sku-breakdown {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  font-size: 0.7rem;
+  color: var(--ink-soft);
+}
+
+.sku-chip {
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  padding: 3px 8px;
+}
+
+/* footer */
+.page-footer {
+  text-align: center;
+  color: #71614f;
+  font-size: 0.72rem;
+  padding: 0 0 30px;
+}
+
+@media (max-width: 480px) {
+  .topnav {
+    padding: 16px 18px;
+  }
+  .card {
+    padding: 26px 18px 20px;
+  }
+  .tear {
+    margin: 18px -18px;
+  }
+}

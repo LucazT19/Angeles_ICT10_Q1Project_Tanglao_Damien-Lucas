@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Skewer — SKU Generator</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,600;1,600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="style.css" />
+</head>
+<body class="sku-page">
+
+  <nav class="topnav">
+    <div class="brand">Skewer</div>
+    <div class="nav-links">
+      <a href="sku.html" class="active">sku generator</a>
+      <a href="index.html">receipt generator</a>
+    </div>
+  </nav>
+
+  <main>
+    <div class="card">
+      <div class="tag-hole"></div>
+      <div class="card-header">
+        <div class="card-icon">🏷️</div>
+        <h1>SKU Generator</h1>
+        <p>Turn a product's details into a stock code</p>
+      </div>
+
+      <div class="field">
+        <label for="category">Category</label>
+        <select id="category">
+          <option value="Perishables">Perishables</option>
+          <option value="Beverages">Beverages</option>
+          <option value="Bakery">Bakery</option>
+          <option value="Packaging">Packaging</option>
+          <option value="Merchandise">Merchandise</option>
+        </select>
+      </div>
+
+      <div class="field" id="productField">
+        <label for="productName">Product name</label>
+        <input type="text" id="productName" placeholder="e.g. Bottled Water" />
+        <div class="field-error-msg">Enter a product name using letters (and numbers if needed).</div>
+      </div>
+
+      <div class="field" id="quantityField">
+        <label for="stockQuantity">Stock quantity</label>
+        <input type="number" id="stockQuantity" min="0" max="999" placeholder="e.g. 50" />
+        <div class="field-error-msg">Enter a quantity between 0 and 999.</div>
+      </div>
+
+      <button class="btn-primary" id="generateBtn">Generate SKU</button>
+      <button class="btn-secondary" id="resetSkuBtn">Clear</button>
+
+      <div class="tear"></div>
+
+      <div class="output-box" id="skuOutputBox">
+        <p class="output-placeholder" id="skuPlaceholder">Your generated SKU will appear here.</p>
+      </div>
+    </div>
+  </main>
+
+  <p class="page-footer">Skewer sku generator, 1st quarter project</p>
+
+  <script src="script.js"></script>
+</body>
+</html>

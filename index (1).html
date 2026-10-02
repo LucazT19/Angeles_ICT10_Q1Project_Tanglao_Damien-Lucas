@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Skewer — Receipt Generator</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,600;1,600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="style.css" />
+</head>
+<body class="receipt-page">
+
+  <nav class="topnav">
+    <div class="brand">Skewer</div>
+    <div class="nav-links">
+      <a href="sku.html">sku generator</a>
+      <a href="index.html" class="active">receipt generator</a>
+    </div>
+  </nav>
+
+  <main>
+    <div class="card">
+      <div class="card-header">
+        <div class="card-icon">🧾</div>
+        <h1>OBMC Entrep Fair</h1>
+        <p>Group 1 — Coffee Shop</p>
+      </div>
+
+      <p class="section-label">Menu</p>
+      <div class="menu-list" id="menuList"></div>
+
+      <div class="tear"></div>
+
+      <div class="field">
+        <label for="customerName">Customer name</label>
+        <input type="text" id="customerName" placeholder="e.g. Raji Dwayne Santos" />
+        <div class="field-error-msg">Please enter the customer's name.</div>
+      </div>
+
+      <div class="field">
+        <label for="paymentMethod">Payment method</label>
+        <select id="paymentMethod">
+          <option value="Cash">Cash</option>
+          <option value="GCash">GCash</option>
+          <option value="Card">Card</option>
+        </select>
+      </div>
+
+      <button class="btn-primary" id="createOrderBtn">Create order</button>
+      <button class="btn-secondary" id="resetBtn">Reset order</button>
+
+      <div class="tear"></div>
+
+      <div class="output-box" id="outputBox">
+        <p class="output-placeholder" id="outputPlaceholder">Your order summary will appear here.</p>
+      </div>
+    </div>
+  </main>
+
+  <p class="page-footer">Skewer receipt generator, skills test</p>
+
+  <script src="script.js"></script>
+</body>
+</html>
